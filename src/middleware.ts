@@ -1,8 +1,9 @@
 import createMiddleware from "next-intl/middleware";
+import { ALL_LOCALES, DEFAULT_LOCALE } from "tolgee/shared";
 
 export default createMiddleware({
-  locales: ["en", "cs", "de", "fr"],
-  defaultLocale: "en",
+  locales: ALL_LOCALES,
+  defaultLocale: DEFAULT_LOCALE,
 });
 
 export const config = {

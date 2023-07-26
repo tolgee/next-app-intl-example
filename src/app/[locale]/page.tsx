@@ -1,5 +1,7 @@
 import { getTranslate } from "tolgee/server";
 import { Todos } from "./Todos";
+import Link from "next-intl/link";
+
 import { Navbar } from "components/Navbar";
 
 export default async function IndexPage() {
@@ -8,9 +10,9 @@ export default async function IndexPage() {
     <div className="background-wrapper">
       <div className="example">
         <Navbar>
-          <a href="/translation-methods">
+          <Link href="/translation-methods">
             {t("menu-item-translation-methods")}
-          </a>
+          </Link>
         </Navbar>
         <header>
           <h1 className="header__title">{t("on-the-road-title")}</h1>

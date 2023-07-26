@@ -1,14 +1,14 @@
 import { cache } from "react";
 import { useLocale } from "next-intl";
 
-import { TolgeeBase, allLocales, getStaticData } from "./shared";
+import { TolgeeBase, ALL_LOCALES, getStaticData } from "./shared";
 import { ParamsTags, TProps } from "./TBase/types";
 import { TBase } from "./TBase/TBase";
 import { TFnType } from "@tolgee/web";
 
 export const getTolgeeInstance = cache(async (locale: string) => {
   const tolgee = TolgeeBase().init({
-    staticData: await getStaticData(allLocales),
+    staticData: await getStaticData(ALL_LOCALES),
     observerOptions: {
       fullKeyEncode: true,
     },

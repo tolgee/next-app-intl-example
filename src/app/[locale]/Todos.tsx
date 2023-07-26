@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Navbar } from "../../components/Navbar";
 import { T, useTranslate } from "@tolgee/react";
 
 const getInitialItems = () => {
