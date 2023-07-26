@@ -1,18 +1,23 @@
-import {useTranslations} from 'next-intl';
-import PageLayout from 'components/PageLayout';
+import { getTranslate } from "tolgee/server";
+import { Todos } from "./Todos";
+import { Navbar } from "components/Navbar";
 
-export default function IndexPage() {
-  const t = useTranslations('IndexPage');
-
+export default async function IndexPage() {
+  const t = await getTranslate();
   return (
-    <PageLayout title={t('title')}>
-      <p className="max-w-[590px]">
-        {t.rich('description', {
-          code: (chunks) => (
-            <code className="font-mono text-white">{chunks}</code>
-          )
-        })}
-      </p>
-    </PageLayout>
+    <div className="background-wrapper">
+      <div className="example">
+        <Navbar>
+          <a href="/translation-methods">
+            {t("menu-item-translation-methods")}
+          </a>
+        </Navbar>
+        <header>
+          <h1 className="header__title">{t("on-the-road-title")}</h1>
+          <h2 className="header__subtitle">{t("on-the-road-subtitle")}</h2>
+        </header>
+        <Todos />
+      </div>
+    </div>
   );
 }
