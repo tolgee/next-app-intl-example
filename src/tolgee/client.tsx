@@ -1,7 +1,7 @@
 "use client";
 
 import { TolgeeBase } from "./shared";
-import { TolgeeProvider, useTolgeeSSR } from "@tolgee/react";
+import { TolgeeInstance, TolgeeProvider, useTolgeeSSR } from "@tolgee/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 

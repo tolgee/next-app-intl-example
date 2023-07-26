@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=EB+Garamond');
-@import url('https://fonts.googleapis.com/css?family=Cairo');
+@import url("https://fonts.googleapis.com/css?family=EB+Garamond");
+@import url("https://fonts.googleapis.com/css?family=Cairo");
 
 :root * {
   box-sizing: border-box;
@@ -13,7 +13,7 @@
 }
 
 .background-wrapper::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -21,7 +21,7 @@
   height: 100%;
   opacity: 0.4;
   z-index: -1;
-  background-image: url('/img/background.jpg');
+  background-image: url("/img/background.jpg");
   background-size: cover;
 }
 
@@ -33,7 +33,7 @@
 }
 
 :root {
-  font-family: 'Cairo';
+  font-family: "Cairo";
 }
 
 body {
@@ -103,7 +103,7 @@ header {
 
 header::before,
 header:after {
-  content: '';
+  content: "";
   width: 100px;
   height: 17px;
   position: absolute;
@@ -127,7 +127,7 @@ header h2 {
   margin: 0;
   text-align: center;
   font-size: 50px;
-  font-family: 'EG Garamond';
+  font-family: "EG Garamond";
   font-weight: 300;
 }
 
@@ -247,7 +247,7 @@ header h2 {
   -webkit-appearance: none;
   -moz-appearance: none;
   text-indent: 1px;
-  text-overflow: '';
+  text-overflow: "";
   cursor: pointer;
 }
 
@@ -255,4 +255,9 @@ header h2 {
   display: flex;
   margin-top: 20px;
   justify-content: center;
+}
+
+.section-title {
+  position: relative;
+  top: 30px;
 }
