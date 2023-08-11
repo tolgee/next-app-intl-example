@@ -7,8 +7,8 @@ An example based on `next13` app folder with `tolgee` and `next-intl` package.
 ## Setup
 
 1. Clone this repo
-2. Run `pnpm i` (assuming pnpm is installed on your machine)
-3. Run `pnpm dev`
+2. Run `npm i`
+3. Run `npm run dev`
 
 ## Setup tolgee credentials (optional)
 
@@ -20,4 +20,4 @@ NEXT_PUBLIC_TOLGEE_API_URL=https://app.tolgee.io
 NEXT_PUBLIC_TOLGEE_API_KEY=<your project API key>
 ```
 
-6. Re-run `pnpm dev`
+6. Re-run `npm run dev`
