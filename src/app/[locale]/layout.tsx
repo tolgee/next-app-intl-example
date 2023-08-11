@@ -21,7 +21,11 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale}>
-      <body>{children}</body>
+      <body>
+        <TolgeeNextProvider locale={locale} locales={locales}>
+          {children}
+        </TolgeeNextProvider>
+      </body>
     </html>
   );
 }

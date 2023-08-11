@@ -3,7 +3,7 @@
   "version": "2.14.3",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 3001",
     "lint": "eslint src && tsc",
     "test": "pnpm run test:playwright && pnpm run test:jest",
     "test:playwright": "playwright test",
