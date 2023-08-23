@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { TolgeeBase } from "./shared";
-import { TolgeeInstance, TolgeeProvider, useTolgeeSSR } from "@tolgee/react";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { TolgeeBase } from './shared';
+import { TolgeeProvider, useTolgeeSSR } from '@tolgee/react';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 type Props = {
   locales: any;
@@ -18,7 +18,7 @@ export const TolgeeNextProvider = ({ locale, locales, children }: Props) => {
   const router = useRouter();
 
   useEffect(() => {
-    const { unsubscribe } = tolgeeSSR.on("permanentChange", () => {
+    const { unsubscribe } = tolgeeSSR.on('permanentChange', () => {
       router.refresh();
     });
 

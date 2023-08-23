@@ -1,7 +1,7 @@
-import { TranslateParams } from "@tolgee/web";
-import React from "react";
+import { TranslateParams } from '@tolgee/web';
+import React from 'react';
 
-import { ParamsTags } from "./types";
+import { ParamsTags } from './types';
 
 export const wrapTagHandlers = (
   params: TranslateParams<ParamsTags> | undefined
@@ -13,7 +13,7 @@ export const wrapTagHandlers = (
   const result: any = {};
 
   Object.entries(params || {}).forEach(([key, value]) => {
-    if (typeof value === "function") {
+    if (typeof value === 'function') {
       result[key] = (chunk: any) => {
         return value(addReactKeys(chunk));
       };

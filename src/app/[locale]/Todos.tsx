@@ -1,23 +1,23 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { T, useTranslate } from "@tolgee/react";
+import { useEffect, useState } from 'react';
+import { T, useTranslate } from '@tolgee/react';
 
 const getInitialItems = () => {
-  let items: string[] =
+  const items: string[] =
     typeof window !== undefined
-      ? JSON.parse(localStorage.getItem("tolgee-example-app-items") || "[]")
+      ? JSON.parse(localStorage.getItem('tolgee-example-app-items') || '[]')
       : [];
 
   return items?.length
     ? items
-    : ["Flame-thrower", "Horse", "My favourite toothbrush"];
+    : ['Flame-thrower', 'Horse', 'My favourite toothbrush'];
 };
 
 export const Todos = () => {
   const { t } = useTranslate();
 
-  const [newItemValue, setNewItemValue] = useState("");
+  const [newItemValue, setNewItemValue] = useState('');
   const [items, setItems] = useState<string[]>([]);
 
   useEffect(() => {
@@ -25,12 +25,12 @@ export const Todos = () => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("tolgee-example-app-items", JSON.stringify(items));
+    localStorage.setItem('tolgee-example-app-items', JSON.stringify(items));
   }, [items]);
 
   const onAdd = () => {
     setItems([...items, newItemValue]);
-    setNewItemValue("");
+    setNewItemValue('');
   };
 
   const onDelete = (index: number) => () => {
@@ -38,7 +38,7 @@ export const Todos = () => {
   };
 
   const onAction = (action: string) => () => {
-    alert("action: " + action);
+    alert('action: ' + action);
   };
 
   return (
@@ -48,8 +48,8 @@ export const Todos = () => {
           value={newItemValue}
           onChange={(e) => setNewItemValue(e.target.value)}
           placeholder={t({
-            key: "add-item-input-placeholder",
-            defaultValue: "New list item",
+            key: 'add-item-input-placeholder',
+            defaultValue: 'New list item',
           })}
         />
         <button onClick={onAdd} disabled={!newItemValue} className="button">
@@ -67,12 +67,12 @@ export const Todos = () => {
         ))}
       </div>
       <div className="items__buttons">
-        <button className="button" onClick={onAction("share")}>
+        <button className="button" onClick={onAction('share')}>
           <T keyName="share-button">Share</T>
         </button>
         <button
           className="button button--secondary"
-          onClick={onAction("email")}
+          onClick={onAction('email')}
         >
           <T keyName="send-via-email">Send via e-mail</T>
         </button>

@@ -1,15 +1,15 @@
-import Link from "next-intl/link";
-import { useLocale } from "next-intl";
+import Link from 'next-intl/link';
+import { useLocale } from 'next-intl';
 
-import { Navbar } from "components/Navbar";
-import { TranslationMethodsServer } from "./TranslationMethodsServer";
-import { TranslationMethodsClient } from "./TranslationMethodsClient";
-import { getStaticData } from "tolgee/shared";
-import { TolgeeNextProvider } from "tolgee/client";
+import { Navbar } from 'components/Navbar';
+import { TranslationMethodsServer } from './TranslationMethodsServer';
+import { TranslationMethodsClient } from './TranslationMethodsClient';
+import { getStaticData } from 'tolgee/shared';
+import { TolgeeNextProvider } from 'tolgee/client';
 
 export default async function AboutPage() {
   const locale = useLocale();
-  const locales = await getStaticData(["en", locale]);
+  const locales = await getStaticData(['en', locale]);
 
   return (
     <TolgeeNextProvider locale={locale} locales={locales}>
@@ -20,6 +20,7 @@ export default async function AboutPage() {
           </div>
         </Navbar>
         <TranslationMethodsClient />
+        {/* @ts-ignore */}
         <TranslationMethodsServer />
       </main>
     </TolgeeNextProvider>

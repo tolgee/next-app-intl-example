@@ -1,5 +1,5 @@
-import React from "react";
-import { LangSelector } from "./LangSelector";
+import React from 'react';
+import { LangSelector } from './LangSelector';
 
 export const Navbar = ({ children }: React.PropsWithChildren) => {
   return (
