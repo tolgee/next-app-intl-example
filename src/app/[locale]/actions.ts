@@ -5,7 +5,11 @@ import { revalidatePath } from "next/cache";
 const BASE_URL = "http://localhost:8080";
 
 export async function onAdd(data: FormData) {
-  const body = JSON.stringify({ text: data.get("text") });
+  const text = data.get("text");
+  if (!text) {
+    return;
+  }
+  const body = JSON.stringify({ text });
   await fetch(`${BASE_URL}/items`, {
     headers: { "Content-Type": "application/json" },
     method: "post",
@@ -15,8 +19,8 @@ export async function onAdd(data: FormData) {
   revalidatePath("/");
 }
 
-export async function onDelete(i: number) {
-  await fetch(`${BASE_URL}/items/${i}`, {
+export async function onDelete(id: number) {
+  await fetch(`${BASE_URL}/items/${id}`, {
     method: "delete",
     headers: { "Content-Type": "application/json" },
     cache: "no-cache",

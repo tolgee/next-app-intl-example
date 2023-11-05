@@ -9,12 +9,12 @@ type Props = {
 export const DeleteButton = ({ itemId }: Props) => {
   const [isDeleting, startDeleting] = useTransition();
 
-  const handleDelete = () => {
+  async function handleDelete() {
     startDeleting(() => onDelete(itemId));
-  };
+  }
 
   return (
-    <button onClick={handleDelete} disabled={isDeleting}>
+    <button disabled={isDeleting} onClick={handleDelete}>
       <T keyName="delete-item-button" />
     </button>
   );

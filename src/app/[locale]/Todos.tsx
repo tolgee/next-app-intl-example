@@ -15,7 +15,10 @@ export const Todos = ({ items }: Props) => {
 
   const [isAdding, startAdding] = useTransition();
 
-  function handleAdd(data: FormData) {
+  async function handleAdd(data: FormData) {
+    if (!data.get("text")) {
+      return;
+    }
     startAdding(async () => {
       onAdd(data);
       setText("");
@@ -31,7 +34,7 @@ export const Todos = ({ items }: Props) => {
           name="text"
           placeholder={t("add-item-input-placeholder")}
         />
-        <button type="submit" className="button" disabled={isAdding || !text}>
+        <button type="submit" className="button" disabled={isAdding}>
           <img src="/img/iconAdd.svg" />
           <T keyName="add-item-add-button" />
         </button>
