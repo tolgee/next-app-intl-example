@@ -1,12 +1,21 @@
-import { ReactNode } from 'react';
-import './style.css';
+export const dynamic = 'force-dynamic' 
+
+import { ReactNode } from "react";
+import { useLocale } from 'next-intl';
 
 type Props = {
   children: ReactNode;
 };
 
-// Since we have a `not-found.tsx` page on the root, a layout file
-// is required, even if it's just passing children through.
-export default function RootLayout({ children }: Props) {
-  return children;
+export default async function RootLayout(props: Props) {
+  const locale = useLocale();
+
+  return (
+    <html lang={locale}>
+      <head>
+        <link rel="stylesheet" href="/style.css" />
+      </head>
+      <body>{props.children}</body>
+    </html>
+  );
 }

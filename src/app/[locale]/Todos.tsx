@@ -1,60 +1,37 @@
-'use client';
+"use client";
+import { useTranslate, T } from "@tolgee/react";
+import { onAdd } from "./actions";
+import { useState, useTransition } from "react";
+import { DeleteButton } from "./DeleteButton";
 
-import { FormEvent, useEffect, useState } from 'react';
-import { T, useTranslate } from '@tolgee/react';
-
-const getInitialItems = () => {
-  const items: string[] =
-    typeof window !== undefined
-      ? JSON.parse(localStorage.getItem('tolgee-example-app-items') || '[]')
-      : [];
-
-  return items?.length
-    ? items
-    : ['Passport', 'Maps and directions', 'Travel guide'];
+type Props = {
+  items: any[];
 };
 
-export const Todos = () => {
+export const Todos = ({ items }: Props) => {
   const { t } = useTranslate();
 
-  const [newItemValue, setNewItemValue] = useState('');
-  const [items, setItems] = useState<string[]>([]);
+  const [text, setText] = useState("");
 
-  useEffect(() => {
-    setItems(getInitialItems());
-  }, []);
+  const [isAdding, startAdding] = useTransition();
 
-  const updateLocalstorage = (items: string[]) => {
-    localStorage.setItem('tolgee-example-app-items', JSON.stringify(items));
-  };
-
-  const onAdd = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const newItems = [...items, newItemValue];
-    setItems(newItems);
-    updateLocalstorage(newItems);
-    setNewItemValue('');
-  };
-
-  const onDelete = (index: number) => () => {
-    const newItems = items.filter((_, i) => i !== index);
-    setItems(newItems);
-    updateLocalstorage(newItems);
-  };
-
-  const onAction = (action: string) => () => {
-    alert('action: ' + action);
-  };
+  function handleAdd(data: FormData) {
+    startAdding(async () => {
+      onAdd(data);
+      setText("");
+    });
+  }
 
   return (
     <section className="items">
-      <form className="items__new-item" onSubmit={onAdd}>
+      <form className="items__new-item" action={handleAdd}>
         <input
-          value={newItemValue}
-          onChange={(e) => setNewItemValue(e.target.value)}
-          placeholder={t('add-item-input-placeholder')}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          name="text"
+          placeholder={t("add-item-input-placeholder")}
         />
-        <button type="submit" disabled={!newItemValue} className="button">
+        <button type="submit" className="button" disabled={isAdding || !text}>
           <img src="/img/iconAdd.svg" />
           <T keyName="add-item-add-button" />
         </button>
@@ -62,22 +39,17 @@ export const Todos = () => {
       <div className="items__list">
         {items.map((item, i) => (
           <div key={i} className="item">
-            <div className="item__text">{item}</div>
-            <button onClick={onDelete(i)}>
-              <T keyName="delete-item-button" />
-            </button>
+            <div className="item__text">{item.text}</div>
+            <DeleteButton itemId={item.id} />
           </div>
         ))}
       </div>
       <div className="items__buttons">
-        <button className="button" onClick={onAction('share')}>
+        <button className="button">
           <img src="/img/iconShare.svg" />
           <T keyName="share-button" />
         </button>
-        <button
-          className="button button--secondary"
-          onClick={onAction('email')}
-        >
+        <button className="button button--secondary">
           <img src="/img/iconMail.svg" />
           <T keyName="send-via-email" />
         </button>
