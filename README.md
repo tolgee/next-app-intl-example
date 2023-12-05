@@ -1,4 +1,4 @@
-# Tolgee with next.js 13 app router DEMO
+# Tolgee with next.js 14 app router DEMO
 
 This repo demonstrates how to use `tolgee` with new `next.js` app router.
 

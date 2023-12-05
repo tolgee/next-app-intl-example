@@ -1,6 +1,6 @@
 import { getTranslate } from 'tolgee/server';
 import { Todos } from './Todos';
-import Link from 'next-intl/link';
+import { Link } from 'navigation';
 
 import { Navbar } from 'components/Navbar';
 

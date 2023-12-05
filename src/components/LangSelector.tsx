@@ -1,7 +1,7 @@
 'use client';
 
 import React, { ChangeEvent, useTransition } from 'react';
-import { usePathname, useRouter } from 'next-intl/client';
+import { usePathname, useRouter } from 'navigation';
 import { useTolgee } from '@tolgee/react';
 
 export const LangSelector: React.FC = () => {
