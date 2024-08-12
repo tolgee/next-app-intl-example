@@ -1,18 +1,16 @@
-import { getLocale } from 'next-intl/server';
-import { Link } from '@/navigation';
-import { Navbar } from '@/components/Navbar';
-import { getStaticData } from '@/tolgee/shared';
-import { TolgeeNextProvider } from '@/tolgee/client';
+import { getLocale } from "next-intl/server";
+import { Link } from "@/navigation";
+import { Navbar } from "@/components/Navbar";
+import { TolgeeNextProvider } from "@/tolgee/client";
 
-import { TranslationMethodsServer } from './TranslationMethodsServer';
-import { TranslationMethodsClient } from './TranslationMethodsClient';
+import { TranslationMethodsServer } from "./TranslationMethodsServer";
+import { TranslationMethodsClient } from "./TranslationMethodsClient";
 
 export default async function AboutPage() {
   const locale = await getLocale();
-  const locales = await getStaticData(['en', locale]);
 
   return (
-    <TolgeeNextProvider locale={locale} locales={locales}>
+    <TolgeeNextProvider locale={locale} locales={{}}>
       <main className="translation-methods">
         <Navbar>
           <div slot="menu-items">
