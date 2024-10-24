@@ -1,8 +1,8 @@
-import { notFound } from "next/navigation";
 import { ReactNode } from "react";
 import { TolgeeNextProvider } from "@/tolgee/client";
-import { ALL_LOCALES, getStaticData } from "@/tolgee/shared";
+import { getStaticData } from "@/tolgee/shared";
 import { getLocale } from "@/tolgee/locale";
+import "./style.css";
 
 type Props = {
   children: ReactNode;

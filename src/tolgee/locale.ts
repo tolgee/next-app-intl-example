@@ -1,9 +1,9 @@
 "use server";
 
 import { cookies } from "next/headers";
-import { DEFAULT_LOCALE } from "./shared";
+import { ALL_LOCALES, DEFAULT_LOCALE } from "./shared";
 
-const LOCALE_COOKIE = "next_locale";
+const LOCALE_COOKIE = "NEXT_LOCALE";
 
 export async function setLocale(locale: string) {
   const cookieStore = cookies();
@@ -15,5 +15,10 @@ export async function setLocale(locale: string) {
 
 export async function getLocale() {
   const cookieStore = cookies();
-  return cookieStore.get(LOCALE_COOKIE)?.value ?? DEFAULT_LOCALE;
+  const locale = cookieStore.get(LOCALE_COOKIE)?.value;
+  if (locale && ALL_LOCALES.includes(locale)) {
+    return locale;
+  } else {
+    return DEFAULT_LOCALE;
+  }
 }

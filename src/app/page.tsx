@@ -3,7 +3,6 @@ import { getTranslate } from "@/tolgee/server";
 import { Navbar } from "@/components/Navbar";
 import Link from "next/link";
 import { Todos } from "./Todos";
-import "./style.css";
 
 export default async function IndexPage() {
   const t = await getTranslate();
