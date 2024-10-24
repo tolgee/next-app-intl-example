@@ -1,6 +1,26 @@
-import { redirect } from 'next/navigation';
+import { getTranslate } from "@/tolgee/server";
 
-// This page only renders when the app is built statically (output: 'export')
-export default function RootPage() {
-  redirect('/en');
+import { Navbar } from "@/components/Navbar";
+import Link from "next/link";
+import { Todos } from "./Todos";
+import "./style.css";
+
+export default async function IndexPage() {
+  const t = await getTranslate();
+  return (
+    <div className="background-wrapper">
+      <div className="example">
+        <Navbar>
+          <Link href="/translation-methods">
+            {t("menu-item-translation-methods")}
+          </Link>
+        </Navbar>
+        <header>
+          <img src="/img/appLogo.svg" />
+          <h1 className="header__title">{t("app-title")}</h1>
+        </header>
+        <Todos />
+      </div>
+    </div>
+  );
 }
