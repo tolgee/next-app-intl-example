@@ -1,4 +1,11 @@
-> This repo is just a dummy. Submit issues [in monorepo](https://github.com/tolgee/tolgee-js) or [check the source code here](https://github.com/tolgee/tolgee-js/tree/main/testapps/next-app-intl).
+<p align="center">
+    <strong>🚨🚨🚨 This repo is just a dummy 🚨🚨🚨</strong><br>
+    Submit issues in the 
+    <a href="https://github.com/tolgee/tolgee-js" target="_blank"><strong>monorepo</strong></a> 
+    or 
+    <a href="https://github.com/tolgee/tolgee-js/tree/main/testapps/next-app-intl" target="_blank"><strong>check the source code here</strong></a>.
+</p>
+
 # Tolgee with next.js 14 app router DEMO
 
 This repo demonstrates how to use `tolgee` with new `next.js` app router.
